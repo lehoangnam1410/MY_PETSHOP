@@ -67,7 +67,7 @@ const updatePet = (data:PatchPetInterface) =>{
 }
 // Xóa pet
 const deletePet = (petCode:number) =>{
-    return axios.delete(`/pet/${petCode}`,
+    return axios.delete(`/pet/:${petCode}`,
     {
         headers:{
             "Content-Type": "application/json"

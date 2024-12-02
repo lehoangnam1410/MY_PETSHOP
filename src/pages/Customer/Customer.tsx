@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input, Table, Pagination, Dropdown, Space, MenuProps } from "antd";
 import { ColumnType } from "antd/es/table";
-import useGetCustomer from "../../hooks/useGetCustomer";
+import useGetCustomer from "../../hooks/Customer/useGetCustomer";
 import FilterCustomer from "../../components/Customer/FilterCustomer";
 import ModelAddCustomer from "../../components/Customer/ModelAddCustomer";
 

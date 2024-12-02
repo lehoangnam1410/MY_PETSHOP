@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { ServiceTypeInterface } from '../Interface/InterfaceService';
-import getService from '../service/Service/service';
+import { ServiceTypeInterface } from '../../Interface/InterfaceService';
+import getService from '../../service/Service/service';
 interface GetServiceInterface{
     listService: ServiceTypeInterface[],
     fetchListService: () => void

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from 'antd';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import SidebarComponent from './components/Sidebar';
-import HeaderComponent from './components/Header';
+import SidebarComponent from './components/BreadCrumbs/Sidebar';
+import HeaderComponent from './components/BreadCrumbs/Header';
 import Dashboard from './pages/Dashbroad/Dashboard';
 import Employee from './pages/Employee/Employee';
 import Login from './pages/Login/Login';

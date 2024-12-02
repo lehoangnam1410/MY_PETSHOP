@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { CustomerRecordInterface } from '../Interface/InterfaceCustom';
-import { useDebounce } from './useDebounce';
-import { searchCustomerWithNameAndStatus } from '../service/Customer/customer';
+import { CustomerRecordInterface } from '../../Interface/InterfaceCustom';
+import { useDebounce } from '../Breadcrumbs/useDebounce';
+import { searchCustomerWithNameAndStatus } from '../../service/Customer/customer';
 interface useGetCustomerInterface  {
   listCustommer: CustomerRecordInterface[];
   totalRows: number;

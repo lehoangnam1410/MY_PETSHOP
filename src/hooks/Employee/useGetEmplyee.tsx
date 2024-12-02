@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { EmployeeInterface } from '../Interface/InterfaceEmployee';
-import { searchEmployeeWithNameAndStatus } from '../service/Employee/employee';
-import { useDebounce } from './useDebounce';
+import { EmployeeInterface } from '../../Interface/InterfaceEmployee';
+import { searchEmployeeWithNameAndStatus } from '../../service/Employee/employee';
+import { useDebounce } from '../Breadcrumbs/useDebounce';
 interface UseEmployeeInterface {
     listEmployee: EmployeeInterface[];
     totalRows: number;

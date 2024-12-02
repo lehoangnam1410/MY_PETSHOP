@@ -9,7 +9,7 @@ import {
     UserOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
-import getServiceActive from '../service/Service/serviceAtive';
+import getServiceActive from '../../service/Service/serviceAtive';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const SidebarItemsData = () => {

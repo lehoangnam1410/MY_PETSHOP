@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import {  Button, Input, Table, Pagination, Dropdown, Space, MenuProps } from 'antd';
 import { EmployeeInterface } from "../../Interface/InterfaceEmployee";
 import { ColumnType } from "antd/es/table";
-import useGetService from "../../hooks/useGetService";
-import useGetEmployee from "../../hooks/useGetEmplyee";
+import useGetService from "../../hooks/Service/useGetService";
+import useGetEmployee from "../../hooks/Employee/useGetEmplyee";
 import ModelAddEmploy from "../../components/Employee/ModelAddEmploy";
 import FilterEmployee from "../../components/Employee/FilterEmployee";
 const Employee = () => {
