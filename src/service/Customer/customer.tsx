@@ -45,6 +45,7 @@ interface DataAddCustomerInterface {
     gender: string,
     status:string
 }
+// thêm khách hàng
 const addCustomer = (data: DataAddCustomerInterface) =>{
     return axios.post(`/customers`,data,{
         headers:{
@@ -52,6 +53,23 @@ const addCustomer = (data: DataAddCustomerInterface) =>{
         }
     })
 }
+// sửa khách hàng
+interface UpdateCustomerInterface {
+    customerCode: string;
+    customerName: string;
+    customerPhone: string;
+    address: string;
+    gender: 'MALE' | 'FEMALE' | 'OTHER';  // Giới hạn các giá trị có thể có cho gender
+    status: 'ACTIVE' | 'INACTIVE';  // Giới hạn các giá trị có thể có cho status
+  }
+const updateCustomer = (data:UpdateCustomerInterface) =>{
+    return axios.patch(`/customers`,data,{
+        headers:{
+            "Content-Type": "application/json" 
+        }
+    })
+}
+// xóa khách hàng
 const deleteCustomer = (customerCode:string) =>{
     return axios.delete(`/customers/:${customerCode}`,{
         headers:{
@@ -59,4 +77,5 @@ const deleteCustomer = (customerCode:string) =>{
         }
     });
 }
-export {getCustomer,getCustomerByLimitandOffet,searchCustomerWithNameAndStatus,getDetailCustomer,deleteCustomer,addCustomer}
+export {getCustomer,getCustomerByLimitandOffet,searchCustomerWithNameAndStatus,getDetailCustomer,
+    deleteCustomer,addCustomer,updateCustomer}

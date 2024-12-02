@@ -29,11 +29,34 @@ const searchEmployeeWithNameAndStatus = (limit:number,offset:number,key:string,s
           }
     });
 }
-const addEmployee = () =>{
-    return axios.post(``,{
+interface AddEmpolyeeInterface {
+    userName: string;
+    email: string;
+    avatar: string;  // ID của avatar (hoặc có thể là URL nếu cần)
+    role: 'MEMBER' | 'ADMIN' | 'GUEST';  // Giới hạn giá trị role nếu cần
+    status: 'ACTIVE' | 'INACTIVE';  // Giới hạn giá trị status nếu cần
+  }
+const addEmployee = (data:AddEmpolyeeInterface) =>{
+    return axios.post(`user`,data,{
         headers:{
             "Content-Type": "application/json",
         }
     })
 }
-export {getEmployee,getEmployeeByLimitandOffet,searchEmployeeWithName,searchEmployeeWithNameAndStatus}
+interface PatchEmployeeInterface {
+    userCode: string;
+    userName: string;
+    avatar: string;  // ID của avatar (hoặc có thể là URL nếu cần)
+    role: 'MEMBER' | 'ADMIN' | 'GUEST';  // Giới hạn giá trị role nếu cần
+    status: 'ACTIVE' | 'INACTIVE';  // Giới hạn giá trị status nếu cần
+  }
+const updateEmployee = (data:PatchEmployeeInterface) =>{
+    return axios.patch(`user`,data,{
+        headers:{
+            "Content-Type": "application/json",
+        }
+    })
+}
+export {getEmployee,getEmployeeByLimitandOffet,searchEmployeeWithName,searchEmployeeWithNameAndStatus
+,addEmployee,updateEmployee
+}
