@@ -74,4 +74,4 @@ const deletePet = (petCode:number) =>{
         }
     })
 }
-export {addPet}
+export {getAllPet,getDetailPet,addPet,updatePet,deletePet}

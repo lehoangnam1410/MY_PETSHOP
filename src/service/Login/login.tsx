@@ -5,12 +5,9 @@ interface LoginParams {
   password: string;
 }
 
-const login = async ({ email, password }: LoginParams) => {
+const login = async (data: LoginParams) => {
   try {
-    const response = await axios.post("/user/login", {
-      email,
-      password
-    });
+    const response = await axios.post("/user/login", data);
     return response; // Trả về dữ liệu từ server
   } catch (error) {
     console.error("Login failed:", error);
