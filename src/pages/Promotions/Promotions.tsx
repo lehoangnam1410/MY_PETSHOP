@@ -6,6 +6,7 @@ const Promotions = () => {
   const showDrawer = () => {
     setDrawerOpen(true);
   };
+  //sads
   const closeDrawer = () => {
     setDrawerOpen(false);
   };
