@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
 }
 
   return (
-    <Content style={{ padding: '0 50px', overflowY: "scroll" }}>
+    <Content style={{ padding: '0 50px' }}>
       <Row gutter={16} style={{ marginTop: 16 }}>
         <Col span={8}>
           <Card>

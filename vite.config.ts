@@ -1,15 +1,20 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'), // Alias cho thư mục `src`
+    },
+  },
   css: {
     preprocessorOptions: {
       scss: {
-        // Bạn có thể thêm biến hoặc cấu hình SCSS ở đây nếu cần
-        additionalData: `@import "./src/styles/variables.scss";` // (tuỳ chọn) thêm global styles
-      }
-    }
-  }
+        // Import global SCSS trong mọi file SCSS
+        additionalData: `@import "@/styles/variables.scss";`, 
+      },
+    },
+  },
 });

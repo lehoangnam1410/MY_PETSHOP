@@ -11,58 +11,62 @@ import {
 import { Menu } from 'antd';
 import getServiceActive from '../../service/Service/serviceAtive';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const SidebarItemsData = () => {
+    // Khởi tạo useTranslation để sử dụng t() cho việc dịch
+    const { t } = useTranslation();
+
     const menuDashBroad = [
         {
-            label: 'Dashboard',
+            label: t('Dashboard'), // Dịch tên menu "Dashboard"
             icon: <UserOutlined />,
-            key: '/dashboard',  // key là đường dẫn
+            key: '/dashboard',
         },
     ];
 
     const sidebarItemsData2 = [
         {
-            label: 'Nhân viên',
+            label: t('Employee'), // Dịch tên menu "Nhân viên"
             icon: <UserOutlined />,
-            key: '/employee',  // key là đường dẫn
+            key: '/employee',
         },
         {
-            label: 'Đơn hàng',
+            label: t('Orders'), // Dịch tên menu "Đơn hàng"
             icon: <ShoppingOutlined />,
             key: '/orders',
         },
         {
-            label: 'Khuyến mãi',
+            label: t('Promotions'), // Dịch tên menu "Khuyến mãi"
             icon: <PercentageOutlined />,
-            key: '/promotions',  // key là đường dẫn
+            key: '/promotions',
         },
         {
-            label: 'Khách hàng',
+            label: t('Customer'), // Dịch tên menu "Khách hàng"
             icon: <MessageOutlined />,
             key: '/customer',
         },
         {
-            label: 'Báo cáo',
+            label: t('Reports'), // Dịch tên menu "Báo cáo"
             icon: <CalendarOutlined />,
             key: '/reports',
         },
         {
-            label: 'Thông báo',
+            label: t('Notifications'), // Dịch tên menu "Thông báo"
             icon: <BellOutlined />,
             key: '/notifications',
         },
         {
-            label: 'Sản phẩm',
+            label: t('Products'), // Dịch tên menu "Sản phẩm"
             icon: <ShoppingOutlined />,
             key: '/products',
         },
         {
-            label: 'Cài đặt',
+            label: t('Settings'), // Dịch tên menu "Cài đặt"
             icon: <SettingOutlined />,
             children: [
-                { label: 'Dịch vụ hệ thống', key: '/settings/system-services' },
-                { label: 'Phân loại thú cưng', key: '/settings/pet-categories' },
+                { label: t('System Services'), key: '/settings/system-services' }, // Dịch tên menu con "Dịch vụ hệ thống"
+                { label: t('Pet Categories'), key: '/settings/pet-categories' }, // Dịch tên menu con "Phân loại thú cưng"
             ],
         },
     ];
@@ -74,13 +78,13 @@ const SidebarItemsData = () => {
             const data = await getServiceActive();
             const sidebarItems = data.data.map((data) => ({
                 label: data.serviceTypeName, // Sử dụng categoryName làm label
-                key: `/services/${data.serviceTypeCode}`, // key là đường dẫn
-                icon: <ShoppingOutlined />, // Bạn có thể thay đổi icon nếu cần
+                key: `/services/${data.serviceTypeCode}`,
+                icon: <ShoppingOutlined />,
                 children: [
-                    { label: 'Đơn hàng', key: `/order?serviceTypeCode=${data.serviceTypeCode}` },
-                    { label: 'Nhân viên', key: `/staff?serviceTypeCode=${data.serviceTypeCode}` },
-                    { label: 'Danh mục', key: `/catalog?serviceTypeCode=${data.serviceTypeCode}` },
-                    { label: 'Dịch vụ', key: `/service?serviceTypeCode=${data.serviceTypeCode}` },
+                    { label: t('Orders'), key: `/order?serviceTypeCode=${data.serviceTypeCode}` }, // Dịch menu con "Đơn hàng"
+                    { label: t('Staff'), key: `/staff?serviceTypeCode=${data.serviceTypeCode}` }, // Dịch menu con "Nhân viên"
+                    { label: t('Catalog'), key: `/catalog?serviceTypeCode=${data.serviceTypeCode}` }, // Dịch menu con "Danh mục"
+                    { label: t('Services'), key: `/service?serviceTypeCode=${data.serviceTypeCode}` }, // Dịch menu con "Dịch vụ"
                 ],
             }));
             setMenuDynamic(sidebarItems);
@@ -90,9 +94,10 @@ const SidebarItemsData = () => {
 
     const combinedMenu = [...menuDashBroad, ...menuDynamic, ...sidebarItemsData2];
     const navigate = useNavigate();
-    const location = useLocation(); // Lấy thông tin đường dẫn hiện tại
+    const location = useLocation();
+
     const handleMenuClick = ({ key }: { key: string }) => {
-        navigate(key);  // Điều hướng tới trang dựa trên key
+        navigate(key);
     };
 
     return (
@@ -100,8 +105,8 @@ const SidebarItemsData = () => {
             mode="inline"
             className="menu-bar h-full"
             onClick={handleMenuClick}
-            selectedKeys={[location.pathname]}  // Set selected key bằng đường dẫn hiện tại         
-            items={combinedMenu}  // Đưa vào items đã được xử lý
+            selectedKeys={[location.pathname]}
+            items={combinedMenu}
         />
     );
 };

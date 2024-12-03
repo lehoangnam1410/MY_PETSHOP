@@ -7,6 +7,14 @@ const getOrder = () => {
         }
     })
 }
+//searchOrder
+const searchOrderWithNameAndStatus = (limit:number,offset:number,key:string,status:string)  =>{
+    return axios.get(`/orders?limit=${limit}&offset=${offset}&userName[contains]=${key}&status[eq]=${status}`,{
+        headers: {
+            "Content-Type": "application/json",
+          }
+    });
+}
 // lấy chi tiết order 
 const getDetailOrder = (orderCode: string) => {
     return axios.get(`/orders/${orderCode}`, {

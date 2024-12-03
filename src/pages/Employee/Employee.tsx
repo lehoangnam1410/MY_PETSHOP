@@ -120,7 +120,7 @@ const Employee = () => {
   };
 
   return (
-    <div className="h-full relative">
+    <div className="h-full">
       <div>
         <div className="header-main w-[90%] mx-auto">
           <div className="flex justify-between p-4">

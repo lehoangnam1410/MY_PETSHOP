@@ -1,12 +1,12 @@
 import { Button, Layout, Menu } from 'antd';
+import { FaMoon, FaSun } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import SidebarItemsData from './SideBarItemsData';
-
 const SidebarComponent = ({ collapsed }: { collapsed: boolean }) => {
   const navigate = useNavigate();
-
+ 
   return (
-    <Layout.Sider theme="light" width={260} trigger="null" collapsed={collapsed} className='sider h-screen border-r-2 border-[#e5e5e5]'>
+    <Layout.Sider theme="light" width={260} trigger="null" collapsed={collapsed} className='siderbar-menu sider h-screen border-r-2 border-[#e5e5e5]'>
       <div className='h-[8%] flex items-center justify-center'>
         {!collapsed ? (
           <img src="./img/logo.jpg" alt="Logo lớn" />
@@ -19,14 +19,14 @@ const SidebarComponent = ({ collapsed }: { collapsed: boolean }) => {
           </svg>
         )}
       </div>
-      <div className='overflow-y-auto h-[92%]'>
+      <div className='menu-bar-lightOrDark overflow-y-auto h-[92%]'>
         {/* <Menu 
           mode="inline"
           defaultSelectedKeys={['1']}
           items={items}
           className='menu-bar h-full'
         /> */}
-        <SidebarItemsData/>
+        <SidebarItemsData />
       </div>
     </Layout.Sider>
   );
